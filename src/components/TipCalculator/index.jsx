@@ -5,7 +5,7 @@ import personIcon from "../../assets/icon-person.svg"
 
 export const TipCalculator = () => {
     const [bill, setBill] = useState(0)
-    const [numberPeople,setNumberPeople] = useState(0)
+    const [numberPeople,setNumberPeople] = useState(1)
     const [isCustomTip, setIsCustomTip] = useState(false)
     const [tipPercent, setTipPercent] = useState(0.00)
     const [selectedButton, setSelectedButton] = useState(0)
@@ -17,13 +17,13 @@ export const TipCalculator = () => {
     const getTotalAmountPerPerson = () => {
         let amount = bill/numberPeople
         amount = amount.toFixed(2)
-        return isNaN(amount) ? 0.00 : amount;
+        return isNaN(amount) && numberPeople > 0 ? 0.00 : amount;
     }
 
     const getTipAmountPerPerson = () => {
         let totalTip = bill*tipPercent
         totalTip = (totalTip/numberPeople).toFixed(2)
-        return isNaN(totalTip) ? 0.00 : totalTip;
+        return isNaN(totalTip) && numberPeople > 0 ? 0.00 : totalTip;
     }
 
     let errorStyle = { 

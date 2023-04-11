@@ -17,13 +17,13 @@ export const TipCalculator = () => {
     const getTotalAmountPerPerson = () => {
         let amount = bill/numberPeople
         amount = amount.toFixed(2)
-        return isNaN(amount) && numberPeople > 0 ? 0.00 : amount;
+        return numberPeople > 0 ? amount : 0.00;
     }
 
     const getTipAmountPerPerson = () => {
         let totalTip = bill*tipPercent
         totalTip = (totalTip/numberPeople).toFixed(2)
-        return isNaN(totalTip) && numberPeople > 0 ? 0.00 : totalTip;
+        return numberPeople > 0 ? totalTip : 0.00;
     }
 
     let errorStyle = { 

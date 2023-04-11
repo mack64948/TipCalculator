@@ -220,7 +220,7 @@ export const TipCalculator = () => {
                 setBill(0.00)
                 setTipPercent(0.00)
                 setIsCustomTip(false)
-                setNumberPeople(0)
+                setNumberPeople(1)
                 clearInputFields()
                 
            }}>Reset</button>
